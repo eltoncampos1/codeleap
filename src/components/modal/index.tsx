@@ -32,10 +32,10 @@ export const Modal = ({
     if (!size) return "60vw";
 
     const sizes = {
-      sm: "500px",
-      md: "723px",
-      base: "800px",
-      lg: '1200px'
+      sm: "35%",
+      md: "45%",
+      base: "50%",
+      lg: "80%"
     };
 
     return size && sizes[size];
