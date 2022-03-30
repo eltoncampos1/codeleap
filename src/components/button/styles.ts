@@ -26,5 +26,7 @@ export const Container = styled.button<TProps>`
   font-size: 1rem;
   width: 100%;
   max-width: 115px;
-  padding: 7px;
+  padding: 9px;
+  outline: 0;
+  border: none;
 `
