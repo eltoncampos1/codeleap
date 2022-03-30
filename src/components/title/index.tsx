@@ -2,12 +2,12 @@ import { HTMLAttributes, ReactNode } from 'react';
 import * as S from './styles'
 
 type TProps = {
-  children: ReactNode;
+  color?: string;
 } & HTMLAttributes<HTMLHeadingElement>
 
 
-export const Title = ({ children, ...rest }: TProps) => {
+export const Title = ({ color, children, ...rest }: TProps) => {
   return (
-    <S.Container {...rest}>{children}</S.Container>
+    <S.Container color={color ?? "#000"} {...rest}>{children}</S.Container>
   )
 }
