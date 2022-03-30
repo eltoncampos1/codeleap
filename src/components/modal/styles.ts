@@ -22,6 +22,11 @@ export const ModalContent = styled.div<IModalContent>`
   z-index: 10;
   box-shadow: rgb(0 0 0 / 45%) 0px;
   padding: 2rem;
+
+
+  @media (max-width: 700px) {
+    width: calc(${(props) => props.size} + 20%) ;
+  }
 `;
 
 export const CloseButton = styled.div`
