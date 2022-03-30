@@ -11,7 +11,7 @@ export const Signin = () => {
         </S.TextContainer>
         <Input />
         <S.ButtonContainer>
-          <Button>Enter</Button>
+          <Button disabled>ENTER</Button>
         </S.ButtonContainer>
       </Modal>
     </S.Container>
