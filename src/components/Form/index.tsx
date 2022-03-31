@@ -1,11 +1,17 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { Button, FormGroup, Title } from '../'
 import { useApp } from '../../hooks/useApp'
-import { createPost } from '../../services'
+import { createPostService } from '../../services'
 import * as S from './styles'
 
-export const Form = () => {
-  const { user, fetchPosts } = useApp()
+type TProps = {
+  title?: string
+  buttonText?: string;
+  isEditModal?: boolean;
+}
+
+export const Form = ({ title, buttonText, isEditModal = false }: TProps) => {
+  const { user, fetchPosts, editPost, toggleEditModal } = useApp()
   const initialData: TPayload = {
     title: "",
     content: "",
@@ -14,19 +20,26 @@ export const Form = () => {
 
   const [formData, setFormData] = useState(initialData)
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    createPost(formData)
-    setFormData(initialData)
-    fetchPosts()
+    if (isEditModal) {
+      const { username, ...data } = formData
+      await editPost(data)
+      await fetchPosts()
+      toggleEditModal()
+    } else {
+      createPostService(formData)
+      setFormData(initialData)
+      fetchPosts()
+    }
   }
 
   return (
-    <S.Container onSubmit={onSubmit}>
-      <Title>What’s on your mind?</Title>
+    <S.Container isEditModal={isEditModal} onSubmit={onSubmit}>
+      <Title>{title ?? "What’s on your mind?"}</Title>
       <FormGroup value={formData.title} name="title" onChange={(e) => setFormData({ ...formData, title: e.target.value })} label='title' />
       <FormGroup value={formData.content} name="content" onChange={(e) => setFormData({ ...formData, content: e.target.value })} fieldType="text-area" label='content' />
-      <Button type='submit'>CREATE</Button>
-    </S.Container>
+      <Button disabled={!formData.title || !formData.content} type='submit'>{buttonText ?? "CREATE"}</Button>
+    </S.Container >
   )
 }

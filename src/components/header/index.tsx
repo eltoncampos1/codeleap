@@ -21,7 +21,7 @@ export const Header = ({ whitIcons = false, title, onEditClick, onDeleteClick, .
         {whitIcons && (
           <S.IconWrapper>
             <BiEdit onClick={onEditClick} />
-            <MdDeleteForever onClick={onEditClick} />
+            <MdDeleteForever onClick={onDeleteClick} />
           </S.IconWrapper>
         )}
       </Container>

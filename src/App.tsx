@@ -1,11 +1,13 @@
-import { Signin, Posts } from "./pages"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Posts, Signin } from './pages';
 
-function App() {
-
+export default function App() {
   return (
-    // <Signin />
-    <Posts />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Signin />} />
+        <Route path="/posts" element={<Posts />} />
+      </Routes>
+    </Router>
   )
 }
-
-export default App

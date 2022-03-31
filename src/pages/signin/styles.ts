@@ -10,7 +10,7 @@ export const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
   margin-top: 20px;
-  button {
+  a {
   margin-left: auto;
 
   }
