@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.main`
+export const Container = styled.div`
  width: 100%;
  max-width: 723px;
  border: 1px solid ${props => props.theme.colors.gray};

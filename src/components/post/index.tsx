@@ -1,21 +1,24 @@
+import { formatDistance, subDays } from 'date-fns'
+
 import { Header, Span, Paragraph } from '..'
+import { useApp } from '../../hooks/useApp'
 import * as S from './styles'
 
-type TProps = {
-  content: string;
-  username: string;
-  title: string;
-  create_datetime: string;
-}
+export const Post = ({ title, created_datetime, content, username }: TPost) => {
+  const formatedDate = formatDistance(subDays(new Date(created_datetime), 0), Date.now(), { addSuffix: true, includeSeconds: true })
+  const { user, toggleEditModal } = useApp()
 
-export const Post = ({ title, create_datetime, content, username }: TProps) => {
   return (
     <S.Container>
-      <Header title={title} whitIcons />
+      <Header
+        title={title}
+        whitIcons={user === username}
+        onEditClick={() => toggleEditModal()}
+      />
       <S.PostWrapper>
         <S.UserInfo>
           <Span fontW='700'>@{username}</Span>
-          <Span>{create_datetime}</Span>
+          <Span>{formatedDate}</Span>
         </S.UserInfo>
         <Paragraph>
           {content}

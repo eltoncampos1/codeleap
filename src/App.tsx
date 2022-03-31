@@ -1,9 +1,10 @@
-import { Signin } from "./pages"
+import { Signin, Posts } from "./pages"
 
 function App() {
 
   return (
-    <Signin />
+    // <Signin />
+    <Posts />
   )
 }
 

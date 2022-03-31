@@ -8,18 +8,20 @@ import { HTMLAttributes } from 'react'
 
 type TProps = {
   whitIcons?: boolean;
-  title?: string
+  title?: string;
+  onEditClick?: () => void;
+  onDeleteClick?: () => void;
 } & HTMLAttributes<HTMLHeadElement>
 
-export const Header = ({ whitIcons = false, title, ...rest }: TProps) => {
+export const Header = ({ whitIcons = false, title, onEditClick, onDeleteClick, ...rest }: TProps) => {
   return (
     <S.Wrapper {...rest}>
       <Container>
         <Title color={theme.colors.white}>{title}</Title>
         {whitIcons && (
           <S.IconWrapper>
-            <BiEdit />
-            <MdDeleteForever />
+            <BiEdit onClick={onEditClick} />
+            <MdDeleteForever onClick={onEditClick} />
           </S.IconWrapper>
         )}
       </Container>

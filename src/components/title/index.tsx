@@ -3,6 +3,7 @@ import * as S from './styles'
 
 type TProps = {
   color?: string;
+  fontW?: string;
 } & HTMLAttributes<HTMLHeadingElement>
 
 

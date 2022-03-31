@@ -1,7 +1,10 @@
+import { TextareaHTMLAttributes } from 'react'
 import * as S from './styles'
 
-export const TextArea = () => {
+type TProps = TextareaHTMLAttributes<HTMLTextAreaElement>
+
+export const TextArea = ({ ...rest }: TProps) => {
   return (
-    <S.Container />
+    <S.Container {...rest} />
   )
 }

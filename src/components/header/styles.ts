@@ -10,13 +10,15 @@ export const Wrapper = styled.header`
     display: flex;
  }
  `
-
 export const IconWrapper = styled.div`
   font-size:2rem;
   margin-left: auto;
 
   svg + svg {
     margin-left: 30px;
+  }
+
+  svg {
     cursor: pointer;
   }
 `

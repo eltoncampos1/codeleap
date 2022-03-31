@@ -7,5 +7,5 @@ type AnimationProps = {
 
 export const Container = styled.div<AnimationProps>`
   transition: ease-in-out;
-  animation: ${(props) => props.animation} 0.6s;
+  animation: ${(props) => props.animation} 0.1s ease;
 `;

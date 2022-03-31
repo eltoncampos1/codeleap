@@ -7,6 +7,8 @@ type TProps = {
 const normal = css`
   background: ${(props) => props.theme.colors.black};
   color: ${(props) => props.theme.colors.white};
+  border: none;
+
 `
 
 const ghost = css`
@@ -28,5 +30,4 @@ export const Container = styled.button<TProps>`
   max-width: 115px;
   padding: 9px;
   outline: 0;
-  border: none;
 `
